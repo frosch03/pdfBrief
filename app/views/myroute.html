@@ -1,0 +1,17 @@
+<form name="myForm">
+  Vorname: <input type="text" name="vorName" ng-model="absender.vname" required>
+ <span class="error" ng-show="myForm.vorName.$error.required">
+      Required!</span><br>
+  Nachname: <input type="text" name="nachName" ng-model="absender.nname"> <br>
+  Straße: <input type="text" name="street" ng-model="absender.street">
+  Hausnummer: <input type="text" name="housenr" ng-model="absender.nr" size="3"> <br>
+  Postleitzahl: <input type="text" name="postnr" ng-model="absender.postnr" size="6">
+  Stadt: <input type="text" name="city" ng-model="absender.city"> <br>
+</form>
+
+<hr>
+<p class="latex">
+\setkomavar{ {backadress}
+  { {{absender.vname}}. {{absender.nname}}, {{absender.street}} {{absender.nr}}, {{absender.postnr}} {{absender.city}} }
+</p>
+
