@@ -14,5 +14,5 @@ angular.module('angularApp')
                       , postnr: '72074'
                       , city: 'Tübingen'
                       };
-    $scope.initialchar = $scope.absender.vname.charAt(0);
+    $scope.ini = $scope.absender.vname.charAt(0);
   });
