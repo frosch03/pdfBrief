@@ -1,17 +1,52 @@
 <form name="myForm">
-  Vorname: <input type="text" name="vorName" ng-model="absender.vname" required>
- <span class="error" ng-show="myForm.vorName.$error.required">
-      Required!</span><br>
-  Nachname: <input type="text" name="nachName" ng-model="absender.nname"> <br>
-  Straße: <input type="text" name="street" ng-model="absender.street">
-  Hausnummer: <input type="text" name="housenr" ng-model="absender.nr" size="3"> <br>
-  Postleitzahl: <input type="text" name="postnr" ng-model="absender.postnr" size="6">
-  Stadt: <input type="text" name="city" ng-model="absender.city"> <br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      Vorname &amp; Nachname
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <input type="text" name="vorName" ng-model="absender.vname" required>
+          <span class="error" ng-show="myForm.vorName.$error.required"></span>
+      </div>
+      <div class="col-xs-6">
+        <input type="text" name="nachName" ng-model="absender.nname">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      Straße &amp; Hausnummer
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <input type="text" name="street" ng-model="absender.street">
+      </div>
+      <div class="col-xs-6">
+        <input type="text" name="housenr" ng-model="absender.nr" size="3">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      Postleitzahl Ort
+    </div>
+    <div class="row">
+      <div class="col-xs-2">
+        <input type="text" name="postnr" ng-model="absender.postnr" size="6" />
+      </div>
+      <div class="col-xs-10">
+        <input type="text" name="city" ng-model="absender.city" />
+      </div>
+    </div>
+  </div>
+</div>
 </form>
 
 <hr>
 <p class="latex">
 \setkomavar{ {backadress}
-  { {{absender.vname}}. {{absender.nname}}, {{absender.street}} {{absender.nr}}, {{absender.postnr}} {{absender.city}} }
+  { {{initialchar}}.{{absender.nname}}, {{absender.street}} {{absender.nr}}, {{absender.postnr}} {{absender.city}} }
 </p>
+
 
