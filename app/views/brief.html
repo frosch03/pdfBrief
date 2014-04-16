@@ -1,0 +1,169 @@
+<div class="container">
+  <h1>Absender</h1>
+  <form name="absenderForm">
+    <div class="row">
+      <div class="col-xs-12">
+        Vorname &amp; Nachname
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <input type="text" name="vorName" ng-model="absender.vname" required>
+          <span class="error" ng-show="absenderForm.vorName.$error.required"></span>
+        </div>
+        <div class="col-xs-6">
+          <input type="text" name="nachName" ng-model="absender.nname">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Straße &amp; Hausnummer
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <input type="text" name="street" ng-model="absender.street">
+        </div>
+        <div class="col-xs-6">
+          <input type="text" name="housenr" ng-model="absender.nr" size="3">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Postleitzahl Ort
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <input type="text" name="postnr" ng-model="absender.postnr" size="6" />
+        </div>
+        <div class="col-xs-10">
+          <input type="text" name="city" ng-model="absender.city" />
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+  <h1>Empfänger</h1>
+  <form name="empfaengerForm">
+    <div class="row">
+      <div class="col-xs-12">
+        Vorname &amp; Nachname
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <input type="text" name="vorName" ng-model="empfaenger.vname" required>
+          <span class="error" ng-show="empfaengerForm.vorName.$error.required"></span>
+        </div>
+        <div class="col-xs-6">
+          <input type="text" name="nachName" ng-model="empfaenger.nname">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Straße &amp; Hausnummer
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <input type="text" name="street" ng-model="empfaenger.street">
+        </div>
+        <div class="col-xs-6">
+          <input type="text" name="housenr" ng-model="empfaenger.nr" size="3">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Postleitzahl Ort
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <input type="text" name="postnr" ng-model="empfaenger.postnr" size="6" />
+        </div>
+        <div class="col-xs-10">
+          <input type="text" name="city" ng-model="empfaenger.city" />
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+
+  <form name="metaForm">
+    <div class="row">
+      <div class="col-xs-12">
+        Betreff
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <input type="text" name="subject" ng-model="meta.subject">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Datum
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <input type="text" name="date" ng-model="meta.date">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Grüße
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          Eröffnung
+          <div class="row">
+            <div class="col-xs-6">
+              <input type="text" name="opening" ng-model="meta.opening" />
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          Abschluss
+          <div class="row">
+            <div class="col-xs-6">
+              <input type="text" name="closing" ng-model="meta.closing" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+  <p class="latex">
+    \setkomavar{fromname
+    {\Large{\textsc{ {{absender.vname}} {{absender.nname}} } } }
+    <br />
+
+    \setkomavar{fromaddress
+    { {{absender.street}} {{absender.nr}}\\
+    {{absender.postnr}} {{absender.city}} }
+    <br />
+
+    \setkomavar{ {backadress}
+    { {{absender.vname | limitTo:1}}.{{absender.nname}}, {{absender.street}} {{absender.nr}}, {{absender.postnr}} {{absender.city}} }
+    <br />
+
+    \setkomavar{ {subject}
+    { {{meta.subject}} }
+    <br />
+
+    \begin{letter}{ {{empfaenger.vname | limitTo:1}}.{{empfaenger.nname}}\\{{empfaenger.street}} {{empfaenger.nr}}\\{{empfaenger.postnr}} {{empfaenger.city}} }
+    <br />
+
+    \opening{ {{meta.opening}} {{empfaenger.nname}} }
+    <br />
+
+  <p>bla bla bla<br> bla bla<br> bla<br> usw. ... <br />
+
+    \closing{ {{meta.closing}},\\{{absender.vname}} {{absender.nname}} }
+  </p>
+
+</div>
