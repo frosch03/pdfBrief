@@ -1,0 +1,98 @@
+\documentclass[fontsize=11pt]{scrlttr2}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{babel}
+\usepackage{ngerman}
+\usepackage{microtype}
+\usepackage[right]{eurosym}
+\usepackage{graphics}
+\usepackage{eurosym}
+\usepackage{etoolbox}
+\usepackage{pdfpages}
+% \usepackage{ifthen}
+
+\newcommand{\pic}[2][0.9] {      %pic figure einfügen, [Skalierung], {Dateiname ohne Endung}
+  \scalebox{#1}{
+    \includegraphics{#2}
+  }
+}
+
+\newcommand{\Anrede}[2]{
+  \ifthenelse{\equal{#1}{Herr}}
+  {Sehr geehrter Herr #2,}{
+    \ifthenelse{\equal{#1}{Frau}}
+    {Sehr geehrte Frau #2,}
+    {Sehr geehrte Damen und Herren,}
+  }
+}
+
+\KOMAoptions
+  { paper=a4
+  , fromrule=below
+  , parskip=full
+  , addrfield=true
+  , backaddress=true
+  , numericaldate=false
+  , foldmarks=false
+  , fromemail=false
+  , fromalign=left
+  %, fromlogo=true
+}
+
+\renewcommand*{\raggedsignature}{\raggedright}
+
+
+% |-- Script input 
+% v
+
+\newcommand{\dieAdresse}{Hans Wurst\\Wurststr. 23\\70020 Entenhausen}
+\newcommand{\dieAnrede}{\Anrede{Herr}{Wurst}}
+\newcommand{\derBetreff}{Beschwerde}
+\setkomavar{fromname}
+  {\Large{\textsc{Kurt Deuter}}}
+\setkomavar{fromaddress}
+  {Diestraße 31\\
+   72070 Tübingen}
+\setkomavar{backaddress}
+  {K.Deuter, Diestraße 31, 72070 Tübingen}
+\setkomavar{subject}
+  {\derBetreff}
+\setkomavar{fromemail}{deuter@kurt.de}
+
+% ^
+% |-- Script input 
+
+% \setkomavar*{enclseparator}{Anlagen}
+% \setkomavar*{enclseparator}{Anlage}
+% \setkomavar{signature}{\pic[.09]{Unterschrift-MatthiasBrettschneider}\\Matthias Brettschneider}
+% \setkomavar{location}{\pic[.08]{FotoSW2014-02-11.jpg}}
+% \setkomavar{fromphone}{}
+% \setkomavar{fromlogo}{\pic[.2]{frog}}
+% \setkomavar{specialmail}{Persoenlich/Vertraulich}
+
+
+\begin{document}
+
+% |-- Script input
+% v
+\begin{letter}{\dieAdresse}
+\opening{\dieAnrede}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis ac nulla id ultricies. Ut faucibus malesuada magna, eget
+dictum mi volutpat nec. Aenean convallis, mi porta vestibulum venenatis, risus nisl fringilla erat, vel placerat quam erat sit
+amet quam. 
+
+Praesent diam ligula, dapibus in nisl ac, suscipit varius velit. Nam libero libero, placerat ac sapien ut, pellentesque
+laoreet mi. Mauris pellentesque volutpat mi sed luctus. Phasellus lacinia, nisl at luctus pretium, nunc mi commodo lacus, et
+consequat turpis tortor vel augue. 
+
+Curabitur blandit risus ut risus lobortis, eu interdum dolor aliquet. Vestibulum mattis augue
+vitae posuere lacinia. Vestibulum mauris justo, tempor sed diam et, molestie sagittis orci.
+
+\closing{Mit freundlichen Grüßen}
+% ^
+% |-- Script input 
+
+\end{letter}
+\end{document}
