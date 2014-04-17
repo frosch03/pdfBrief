@@ -6,7 +6,8 @@ angular
     'ngResource',
     'ngSanitize',
     'ngRoute',
-    'lr.upload'
+    'lr.upload',
+    'ui.format'
   ])
   .config(function ($routeProvider) {
     $routeProvider

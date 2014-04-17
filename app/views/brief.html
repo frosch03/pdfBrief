@@ -1,152 +1,134 @@
-
-
-<form name="fileForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/form-data">
-  <input name="myFile" type="file" />
-
-  <div class="btn-upload" upload-button url="http://localhost:8080/upload" on-success="onSuccess(response)" multiple="true">
-    <button class="btn btn-primary">Fileupload</button>
-  </div>
-  <!-- <input type="submit" value="bling"> -->
-</form>
-
-
-<div class="container">
-  <h1>Absender</h1>
-  <form name="absenderForm">
-    <div class="row">
-      <div class="col-xs-12">
-        Vorname &amp; Nachname
-      </div>
+<div class="container">  <div class="row">    <div class="col-xs-6">
+      <h1>Absender</h1>
       <div class="row">
-        <div class="col-xs-6">
-          <input type="text" name="vorName" ng-model="absender.vname" required>
-          <span class="error" ng-show="absenderForm.vorName.$error.required"></span>
-        </div>
-        <div class="col-xs-6">
-          <input type="text" name="nachName" ng-model="absender.nname">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        Straße &amp; Hausnummer
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <input type="text" name="street" ng-model="absender.street">
-        </div>
-        <div class="col-xs-6">
-          <input type="text" name="housenr" ng-model="absender.nr" size="3">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        Postleitzahl Ort
-      </div>
-      <div class="row">
-        <div class="col-xs-2">
-          <input type="text" name="postnr" ng-model="absender.postnr" size="6" />
-        </div>
-        <div class="col-xs-10">
-          <input type="text" name="city" ng-model="absender.city" />
-        </div>
-      </div>
-    </div>
-  </form>
-
-  <hr>
-  <h1>Empfänger</h1>
-  <form name="empfaengerForm">
-    <div class="row">
-      <div class="col-xs-12">
-        Vorname &amp; Nachname
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <input type="text" name="vorName" ng-model="empfaenger.vname" required>
-          <span class="error" ng-show="empfaengerForm.vorName.$error.required"></span>
-        </div>
-        <div class="col-xs-6">
-          <input type="text" name="nachName" ng-model="empfaenger.nname">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        Straße &amp; Hausnummer
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <input type="text" name="street" ng-model="empfaenger.street">
-        </div>
-        <div class="col-xs-6">
-          <input type="text" name="housenr" ng-model="empfaenger.nr" size="3">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        Postleitzahl Ort
-      </div>
-      <div class="row">
-        <div class="col-xs-2">
-          <input type="text" name="postnr" ng-model="empfaenger.postnr" size="6" />
-        </div>
-        <div class="col-xs-10">
-          <input type="text" name="city" ng-model="empfaenger.city" />
-        </div>
-      </div>
-    </div>
-  </form>
-
-  <hr>
-
-  <form name="metaForm">
-    <div class="row">
-      <div class="col-xs-12">
-        Betreff
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <input type="text" name="subject" ng-model="meta.subject">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        Datum
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <input type="text" name="date" ng-model="meta.date">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        Grüße
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          Eröffnung
+        <form name="absenderForm">
           <div class="row">
-            <div class="col-xs-6">
-              <input type="text" name="opening" ng-model="meta.opening" />
+            <!-- Vorname &amp; Nachname -->
+            <div class="row">
+              <div class="col-xs-3">
+                <input type="text" name="vorName" ng-model="absender.vname" required>
+                <span class="error" ng-show="absenderForm.vorName.$error.required"></span>
+              </div>
+              <div class="col-xs-3">
+                <input type="text" name="nachName" ng-model="absender.nname">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-xs-6">
-          Abschluss
+          
           <div class="row">
-            <div class="col-xs-6">
-              <input type="text" name="closing" ng-model="meta.closing" />
+            <!-- Straße &amp; Hausnummer -->
+            <div class="row">
+              <div class="col-xs-5">
+                <input type="text" name="street" ng-model="absender.street">
+              </div>        
+              <div class="col-xs-1">
+                <input type="text" name="housenr" ng-model="absender.nr" size="3">
+              </div>        
             </div>
           </div>
-        </div>
+
+          <div class="row">       
+            <!-- Postleitzahl Ort -->
+            <div class="row">
+              <div class="col-xs-3">
+                <input type="text" name="postnr" ng-model="absender.postnr" size="6" />
+              </div>      
+              <div class="col-xs-3">
+                <input type="text" name="city" ng-model="absender.city" />
+              </div>      
+            </div>
+          </div>    
+        </form>
       </div>
-    </div>
-  </form>
+
+      <h1>Empfänger</h1>
+      <div class="row">
+        <form name="empfaengerForm">
+          <div class="row">
+            <!-- Vorname &amp; Nachname -->
+            <div class="row">
+              <div class="col-xs-3">
+                <input type="text" name="vorName" ng-model="empfaenger.vname" required>
+                <span class="error" ng-show="empfaengerForm.vorName.$error.required"></span>
+              </div>
+              <div class="col-xs-3">
+                <input type="text" name="nachName" ng-model="empfaenger.nname">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Straße &amp; Hausnummer -->
+            <div class="row">
+              <div class="col-xs-5">
+                <input type="text" name="street" ng-model="empfaenger.street">
+              </div>
+              <div class="col-xs-1">
+                <input type="text" name="housenr" ng-model="empfaenger.nr" size="3">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Postleitzahl Ort -->
+            <div class="row">
+              <div class="col-xs-3">
+                <input type="text" name="postnr" ng-model="empfaenger.postnr" size="6" />
+              </div>
+              <div class="col-xs-3">
+                <input type="text" name="city" ng-model="empfaenger.city" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <h1>Meta</h1>
+      <div class="row">
+        <form name="metaForm">
+          <div class="row">
+            <!-- Betreff -->
+            <div class="row">
+              <div class="col-xs-6">
+                <input type="text" name="subject" ng-model="meta.subject">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <!-- Datum -->
+            <div class="row">
+              <div class="col-xs-6">
+                <input type="text" name="date" ng-model="meta.date">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <h3>Grüße</h3>
+            <div class="row">
+              <div class="col-xs-3">
+                <!-- Eröffnung -->
+                <input type="text" name="opening" ng-model="meta.opening" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-3">
+                <!-- Abschluss -->
+                <input type="text" name="closing" ng-model="meta.closing" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+</div>
+<div class="col-xs-6">
+
+<textarea  name="output" ng-model="out" ng-bind="out" rows="32" cols="80">
+hello world
+</textarea>
+
+</div>  </div>  </div>
+
 
 
 
@@ -180,4 +162,3 @@
     \closing{ {{meta.closing}},\\{{absender.vname}} {{absender.nname}} }
   </p>
 
-</div>
