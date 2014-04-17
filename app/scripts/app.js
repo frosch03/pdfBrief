@@ -5,7 +5,8 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'lr.upload'
   ])
   .config(function ($routeProvider) {
     $routeProvider

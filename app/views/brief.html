@@ -1,3 +1,15 @@
+
+
+<form name="fileForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/form-data">
+  <input name="myFile" type="file" />
+
+  <div class="btn-upload" upload-button url="http://localhost:8080/upload" on-success="onSuccess(response)" multiple="true">
+    <button class="btn btn-primary">Fileupload</button>
+  </div>
+  <!-- <input type="submit" value="bling"> -->
+</form>
+
+
 <div class="container">
   <h1>Absender</h1>
   <form name="absenderForm">
@@ -136,10 +148,12 @@
     </div>
   </form>
 
+
+
   <hr>
   <p class="latex">
     \setkomavar{fromname
-    {\Large{\textsc{ {{absender.vname}} {{absender.nname}} } } }
+    {\Large{\textsc{ {{ absender.vname }} {{ absender.nname }} } } }
     <br />
 
     \setkomavar{fromaddress
