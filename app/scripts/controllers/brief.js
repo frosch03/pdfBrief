@@ -29,7 +29,16 @@ angular.module('angularApp')
           closing: 'Mit freundlichen Grüßen'
       };
 
-      $scope.out = 
+      $scope.out = $scope.absender.vname;
+
+      // $scope.out.changeEvent(functon
+
+      // $scope.updateOut = function(){
+      //     $scope.out = $scope.absender.vname;
+      // };
+
+
+      $scope.header = 
           '\\documentclass[fontsize=11pt]{scrlttr2}\n' +
           '\\usepackage[T1]{fontenc}\n' +
           '\\usepackage[utf8]{inputenc}\n' +
@@ -77,26 +86,30 @@ angular.module('angularApp')
           '\n' +
           '% |-- Script input\n' +
           '% v\n' +
-          '\n' +
-          '\\newcommand{\\dieAdresse}{' + 
-              $scope.absender.vname + ' ' + 
-              $scope.absender.nname + '\\\\' + 
-              $scope.absender.street + ' ' + 
-              $scope.absender.nr + '\\\\' + 
-              $scope.absender.postnr + ' ' + 
-              $scope.absender.city + '}\n' +
-          '\\newcommand{\\dieAnrede}{\\Anrede{Herr}{Wurst}}\n' +
-          '\\newcommand{\\derBetreff}{Beschwerde}\n' +
-          '\\setkomavar{fromname}\n' +
-          '  {\\Large{\\textsc{Kurt Deuter}}}\n' +
-          '\\setkomavar{fromaddress}\n' +
-          '  {Diestraße 31\\\\\n' +
-          '   72070 Tübingen}\n' +
-          '\\setkomavar{backaddress}\n' +
-          '  {K.Deuter, Diestraße 31, 72070 Tübingen}\n' +
-          '\\setkomavar{subject}\n' +
-          '  {\\derBetreff}\n' +
-          '\\setkomavar{fromemail}{deuter@kurt.de}\n' +
+          '\n';
+
+
+          // '\\newcommand{\\dieAdresse}{' + 
+          //     $scope.absender.vname + ' ' + 
+          //     $scope.absender.nname + '\\\\' + 
+          //     $scope.absender.street + ' ' + 
+          //     $scope.absender.nr + '\\\\' + 
+          //     $scope.absender.postnr + ' ' + 
+          //     $scope.absender.city + '}\n' +
+          // '\\newcommand{\\dieAnrede}{\\Anrede{Herr}{Wurst}}\n' +
+          // '\\newcommand{\\derBetreff}{Beschwerde}\n' +
+          // '\\setkomavar{fromname}\n' +
+          // '  {\\Large{\\textsc{Kurt Deuter}}}\n' +
+          // '\\setkomavar{fromaddress}\n' +
+          // '  {Diestraße 31\\\\\n' +
+          // '   72070 Tübingen}\n' +
+          // '\\setkomavar{backaddress}\n' +
+          // '  {K.Deuter, Diestraße 31, 72070 Tübingen}\n' +
+          // '\\setkomavar{subject}\n' +
+          // '  {\\derBetreff}\n' +
+          // '\\setkomavar{fromemail}{deuter@kurt.de}\n' +
+
+      $scope.body =
           '\n' +
           '% ^\n' +
           '% |-- Script input\n' +
@@ -106,29 +119,33 @@ angular.module('angularApp')
           '% \\setkomavar{signature}{\\pic[.09]{Unterschrift-MatthiasBrettschneider}\\\\Matthias Brettschneider}\n' +
           '% \\setkomavar{location}{\\pic[.08]{FotoSW2014-02-11.jpg}}\n' +
           '% \\setkomavar{fromphone}{}\n' +
-          '% \\setkomavar{fromlogo}{\\pic[.2]{\n}}\n' +
+          '% \\setkomavar{fromlogo}{\\pic[.2]{ }}\n' +
           '% \\setkomavar{specialmail}{Persoenlich/Vertraulich}\n' +
           '\n' +
           '\n' +
           '\\begin{document}\n' +
           '\n' +
           '% |-- Script input\n' +
-          '% v\n' +
-          '\\begin{letter}{\\dieAdresse}\n' +
-          '\\opening{\\dieAnrede}\n' +
-          '\n' +
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis ac nulla id ultricies. Ut faucibus malesuada magna, eget\n' +
-          'dictum mi volutpat nec. Aenean convallis, mi porta vestibulum venenatis, risus nisl fringilla erat, vel placerat quam erat sit\n' +
-          'amet quam.\n' +
-          '\n' +
-          'Praesent diam ligula, dapibus in nisl ac, suscipit varius velit. Nam libero libero, placerat ac sapien ut, pellentesque\n' +
-          'laoreet mi. Mauris pellentesque volutpat mi sed luctus. Phasellus lacinia, nisl at luctus pretium, nunc mi commodo lacus, et\n' +
-          'consequat turpis tortor vel augue.\n' +
-          '\n' +
-          'Curabitur blandit risus ut risus lobortis, eu interdum dolor aliquet. Vestibulum mattis augue\n' +
-          'vitae posuere lacinia. Vestibulum mauris justo, tempor sed diam et, molestie sagittis orci.\n' +
-          '\n' +
-          '\\closing{Mit freundlichen Grüßen}\n' +
+          '% v\n';
+
+
+          // '\\begin{letter}{\\dieAdresse}\n' +
+          // '\\opening{\\dieAnrede}\n' +
+          // '\n' +
+          // 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis ac nulla id ultricies. Ut faucibus malesuada magna, eget\n' +
+          // 'dictum mi volutpat nec. Aenean convallis, mi porta vestibulum venenatis, risus nisl fringilla erat, vel placerat quam erat sit\n' +
+          // 'amet quam.\n' +
+          // '\n' +
+          // 'Praesent diam ligula, dapibus in nisl ac, suscipit varius velit. Nam libero libero, placerat ac sapien ut, pellentesque\n' +
+          // 'laoreet mi. Mauris pellentesque volutpat mi sed luctus. Phasellus lacinia, nisl at luctus pretium, nunc mi commodo lacus, et\n' +
+          // 'consequat turpis tortor vel augue.\n' +
+          // '\n' +
+          // 'Curabitur blandit risus ut risus lobortis, eu interdum dolor aliquet. Vestibulum mattis augue\n' +
+          // 'vitae posuere lacinia. Vestibulum mauris justo, tempor sed diam et, molestie sagittis orci.\n' +
+          // '\n' +
+          // '\\closing{Mit freundlichen Grüßen}\n' +
+
+      $scope.footer = 
           '% ^\n' +
           '% |-- Script input\n' +
           '\n' +

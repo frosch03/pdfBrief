@@ -123,42 +123,41 @@
 </div>
 <div class="col-xs-6">
 
-<textarea  name="output" ng-model="out" ng-bind="out" rows="32" cols="80">
-hello world
-</textarea>
+  <form name="sendForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/from-data">
+ <!-- style="visibility: hidden;"> -->
+    <textarea  name="latex" rows="32" cols="80">
+      {{header}}
+
+      \newcommand{\dieAdresse}{ {{ empfaenger.vname }} {{ empfaenger.nname }}\\{{ empfaenger.street }} {{ empfaenger.nr }}\\{{empfaenger.postnr}} {{empfaenger.city}} }
+      \newcommand{\dieAnrede}{\Anrede{Herr}{ {{ empfaenger.nname}} } }
+      \newcommand{\derBetreff}{ {{ meta.subject }} }
+      \setkomavar{fromname}    
+         {\Large{\textsc{ {{ absender.vname }} {{ absender.nname }} } } }
+      \setkomavar{fromaddress} 
+         { {{absender.street}} {{absender.nr}}\\{{absender.postnr}} {{absender.city}} } 
+      \setkomavar{backaddress} 
+         { {{absender.vname | limitTo:1}}.{{absender.nname}}, {{absender.street}} {{absender.nr}}, {{absender.postnr}} {{absender.city}} }
+      \setkomavar{subject}
+         { {{meta.subject}} }
+      \setkomavar{fromemail}
+         { kurt-deuter.blub.de }
+
+        {{body}}
+
+      \begin{letter}{ {{empfaenger.vname | limitTo:1}}.{{empfaenger.nname}}\\{{empfaenger.street}} {{empfaenger.nr}}\\{{empfaenger.postnr}} {{empfaenger.city}} }
+      \opening{ {{meta.opening}} {{empfaenger.nname}} }
+
+      bla bla bla
+      bla bla
+      bla
+      usw. ... 
+
+        \closing{ {{meta.closing}},\\{{absender.vname}} {{absender.nname}} }
+
+
+        {{footer}}
+    </textarea>
+    <input type="submit" value="Send">
+  </form>
 
 </div>  </div>  </div>
-
-
-
-
-  <hr>
-  <p class="latex">
-    \setkomavar{fromname
-    {\Large{\textsc{ {{ absender.vname }} {{ absender.nname }} } } }
-    <br />
-
-    \setkomavar{fromaddress
-    { {{absender.street}} {{absender.nr}}\\
-    {{absender.postnr}} {{absender.city}} }
-    <br />
-
-    \setkomavar{ {backadress}
-    { {{absender.vname | limitTo:1}}.{{absender.nname}}, {{absender.street}} {{absender.nr}}, {{absender.postnr}} {{absender.city}} }
-    <br />
-
-    \setkomavar{ {subject}
-    { {{meta.subject}} }
-    <br />
-
-    \begin{letter}{ {{empfaenger.vname | limitTo:1}}.{{empfaenger.nname}}\\{{empfaenger.street}} {{empfaenger.nr}}\\{{empfaenger.postnr}} {{empfaenger.city}} }
-    <br />
-
-    \opening{ {{meta.opening}} {{empfaenger.nname}} }
-    <br />
-
-  <p>bla bla bla<br> bla bla<br> bla<br> usw. ... <br />
-
-    \closing{ {{meta.closing}},\\{{absender.vname}} {{absender.nname}} }
-  </p>
-
