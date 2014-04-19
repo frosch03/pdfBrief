@@ -6,7 +6,7 @@ angular.module('angularApp')
           vname: 'Vorname',
           nname: 'Nachname',
           street: 'Straße',
-          nr: '#',
+          nr: '2',
           postnr: 'PLZ',
           city: 'Ort'
       };
@@ -15,7 +15,7 @@ angular.module('angularApp')
           vname: 'Vorname',
           nname: 'Nachname',
           street: 'Straße',
-          nr: '#',
+          nr: '3',
           postnr: 'PLZ',
           city: 'Ort'
       };
@@ -29,7 +29,9 @@ angular.module('angularApp')
           closing: 'Mit freundlichen Grüßen'
       };
 
-      $scope.out = $scope.absender.vname;
+      $scope.out = function ($scope) {
+          $scope.meta.betreff;
+      };
 
       // $scope.out.changeEvent(functon
 

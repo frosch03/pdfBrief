@@ -125,7 +125,7 @@
 
   <form name="sendForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/from-data">
  <!-- style="visibility: hidden;"> -->
-    <textarea  name="latex" rows="32" cols="80">
+    <textarea  name="latex" rows="0" cols="0" style=" visibility: hidden; ">
       {{header}}
 
       \newcommand{\dieAdresse}{ {{ empfaenger.vname }} {{ empfaenger.nname }}\\{{ empfaenger.street }} {{ empfaenger.nr }}\\{{empfaenger.postnr}} {{empfaenger.city}} }
@@ -157,7 +157,9 @@
 
         {{footer}}
     </textarea>
-    <input type="submit" value="Send">
+    <input type="hidden" name="nachname" value="{{empfaenger.nname}}" />
+    <input type="hidden" name="subject" value="{{meta.subject}}" />
+    <input type="submit" value="Drucken">
   </form>
 
 </div>  </div>  </div>
