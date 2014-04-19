@@ -1,124 +1,85 @@
+<accordion close-others="oneAtATime">
+  <accordion-group heading="Absender" is-open="false">
+    <form name="absenderForm" role="form" class="form-horizontal">
+      <!-- Vorname &amp; Nachname -->
+      <label for="abs" class="col-sm-2 control-label">Absender</label>
+      <div class="form-group form-inline" id="abs">
+        <input type="text" name="vorName" ng-model="absender.vname" placeholder="Vorname" class="form-control">
+        <input type="text" name="nachName" ng-model="absender.nname" class="form-control" placeholder="Nachname">
+      </div>
+      
+      <!-- Straße &amp; Hausnummer -->
+      <label for="addr" class="col-sm-2 control-label">Adresse</label>
+      <div class="form-group form-inline" id="addr">
+        <input type="text" name="street" ng-model="absender.street" placeholder="Straße" class="form-control">
+        <input type="text" name="housenr" ng-model="absender.nr" size="3" placeholder="#" class="form-control">
+      </div>
+
+      <!-- Postleitzahl Ort -->
+      <label for="addr2" class="col-sm-2 control-label"></label>
+      <div class="form-group form-inline" id="addr2">
+        <input type="text" name="postnr" ng-model="absender.postnr" size="6" placeholder="PLZ" class="form-control" />
+        <input type="text" name="city" ng-model="absender.city" placeholder="Ort" class="form-control" />
+      </div>
+    </form>
+  </accordion-group>
+
+  <accordion-group heading="Empfänger" is-open="false">
+    <form name="empfaengerForm" role="form" class="form-horizontal">
+      <!-- Vorname &amp; Nachname -->
+      <label for="empf" class="col-sm-2 control-label">Empfänger</label>
+      <div class="form-group form-inline" id="empf">
+        <input type="text" name="vorName" ng-model="empfaenger.vname" class="form-control" placeholder="Vorname" />
+        <input type="text" name="nachName" ng-model="empfaenger.nname" class="form-control" placeholder="Nachname" />
+      </div>
+      <!-- Straße &amp; Hausnummer -->
+      <label for="eddr2" class="col-sm-2 control-label">Adresse</label>
+      <div class="form-group form-inline" id="eddr">
+        <input type="text" name="street" ng-model="empfaenger.street" class="form-control" placeholder="Straße" />
+        <input type="text" name="housenr" ng-model="empfaenger.nr" size="3" class="form-control" placeholder="#" />
+      </div>
+      <!-- Postleitzahl Ort -->
+      <label for="eddr2" class="col-sm-2 control-label"></label>
+      <div class="form-group form-inline" id="eddr2">
+        <input type="text" name="postnr" ng-model="empfaenger.postnr" size="6" class="form-control" placeholder="PLZ" />
+        <input type="text" name="city" ng-model="empfaenger.city" class="form-control" placeholder="Ort" />
+      </div>
+    </form>
+  </accordion-group>
+
+  <accordion-group heading="Brief" is-open="true">
+  </accordion-group>
+</accordion>
+
+
+
+
+<form name="metaForm" role="form" class="form-horizontal">
+  <!-- Betreff -->
+  <label for="btr" class="col-sm-2 control-label">Betreff</label>
+  <div class="form-group form-inline" id="betr">
+    <input type="text" name="subject" ng-model="meta.subject" class="form-control" placeholder="Betreff" />
+  </div>  
+
+  <!-- Eröffnung -->
+  <label for="begr" class="col-sm-2 control-label">Eröffnung</label>
+  <div class="form-group form-inline" id="begr">
+    <input type="text" name="opening" ng-model="meta.opening" class="form-control" placeholder="Begrüßung" />
+  </div>
+
+  <!-- Abschluss -->
+  <label for="gru" class="col-sm-2 control-label">Abschluss</label>
+  <div class="form-group form-inline" id="gru">
+    <input type="text" name="closing" ng-model="meta.closing" class="form-control" placeholder="Gruß" />
+  </div>
+</form>
+
+
+
+
+
 <div class="container">  <div class="row">    <div class="col-xs-6">
-      <h1>Absender</h1>
-      <div class="row">
-        <form name="absenderForm">
-          <div class="row">
-            <!-- Vorname &amp; Nachname -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="vorName" ng-model="absender.vname" required>
-                <span class="error" ng-show="absenderForm.vorName.$error.required"></span>
-              </div>
-              <div class="col-xs-3">
-                <input type="text" name="nachName" ng-model="absender.nname">
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <!-- Straße &amp; Hausnummer -->
-            <div class="row">
-              <div class="col-xs-5">
-                <input type="text" name="street" ng-model="absender.street">
-              </div>        
-              <div class="col-xs-1">
-                <input type="text" name="housenr" ng-model="absender.nr" size="3">
-              </div>        
-            </div>
-          </div>
 
-          <div class="row">       
-            <!-- Postleitzahl Ort -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="postnr" ng-model="absender.postnr" size="6" />
-              </div>      
-              <div class="col-xs-3">
-                <input type="text" name="city" ng-model="absender.city" />
-              </div>      
-            </div>
-          </div>    
-        </form>
-      </div>
-
-      <h1>Empfänger</h1>
-      <div class="row">
-        <form name="empfaengerForm">
-          <div class="row">
-            <!-- Vorname &amp; Nachname -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="vorName" ng-model="empfaenger.vname" required>
-                <span class="error" ng-show="empfaengerForm.vorName.$error.required"></span>
-              </div>
-              <div class="col-xs-3">
-                <input type="text" name="nachName" ng-model="empfaenger.nname">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- Straße &amp; Hausnummer -->
-            <div class="row">
-              <div class="col-xs-5">
-                <input type="text" name="street" ng-model="empfaenger.street">
-              </div>
-              <div class="col-xs-1">
-                <input type="text" name="housenr" ng-model="empfaenger.nr" size="3">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- Postleitzahl Ort -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="postnr" ng-model="empfaenger.postnr" size="6" />
-              </div>
-              <div class="col-xs-3">
-                <input type="text" name="city" ng-model="empfaenger.city" />
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <h1>Meta</h1>
-      <div class="row">
-        <form name="metaForm">
-          <div class="row">
-            <!-- Betreff -->
-            <div class="row">
-              <div class="col-xs-6">
-                <input type="text" name="subject" ng-model="meta.subject">
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <!-- Datum -->
-            <div class="row">
-              <div class="col-xs-6">
-                <input type="text" name="date" ng-model="meta.date">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <h3>Grüße</h3>
-            <div class="row">
-              <div class="col-xs-3">
-                <!-- Eröffnung -->
-                <input type="text" name="opening" ng-model="meta.opening" />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-3">
-                <!-- Abschluss -->
-                <input type="text" name="closing" ng-model="meta.closing" />
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
 
 </div>
 <div class="col-xs-6">

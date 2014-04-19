@@ -3,30 +3,30 @@
 angular.module('angularApp')
   .controller('BriefCtrl', function ($scope) {
       $scope.absender = {
-        vname: 'Vorname',
-        nname: 'Nachname',
-        street: 'Straße',
-        nr: '2',
-        postnr: 'PLZ',
-        city: 'Ort'
+        vname: '',
+        nname: '',
+        street: '',
+        nr: '',
+        postnr: '',
+        city: ''
       };
 
       $scope.empfaenger = {
-        vname: 'Vorname',
-        nname: 'Nachname',
-        street: 'Straße',
-        nr: '3',
-        postnr: 'PLZ',
-        city: 'Ort'
+        vname: '',
+        nname: '',
+        street: '',
+        nr: '',
+        postnr: '',
+        city: ''
       };
 
       $scope.meta = {
         abs: $scope.absender,
         empf: $scope.empfaenger,
-        subject: 'Betreff',
-        date: 'Datum',
-        opening: 'Sehr geehrte Damen und Herren,',
-        closing: 'Mit freundlichen Grüßen'
+        subject: '',
+        date: '',
+        opening: '',
+        closing: ''
       };
 
       // $scope.out = function ($scope) {
