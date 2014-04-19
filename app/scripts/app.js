@@ -7,6 +7,7 @@ var app = angular.module('angularApp', [
     'ngRoute',
     'lr.upload',
     'ui.format',
+    'ui.bootstrap',
     'xeditable'
   ]);
 

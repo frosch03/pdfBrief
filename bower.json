@@ -13,6 +13,7 @@
     "angular-route": "1.2.15",
     "angular-upload": "~1.0.6",
     "angular-ui-utils": "0",
+    "angular-bootstrap": "0",
     "angular-xeditable": "0"
   },
   "devDependencies": {
