@@ -1,127 +1,64 @@
 <div class="container">  <div class="row">    <div class="col-xs-6">
       <h1>Absender</h1>
       <div class="row">
-        <form name="absenderForm">
           <div class="row">
             <!-- Vorname &amp; Nachname -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="vorName" ng-model="absender.vname" required>
-                <span class="error" ng-show="absenderForm.vorName.$error.required"></span>
-              </div>
-              <div class="col-xs-3">
-                <input type="text" name="nachName" ng-model="absender.nname">
-              </div>
-            </div>
+            <span editable-text="absender.vname">{{absender.vname || 'Vorname'}}</span>
+            <span editable-text="absender.nname">{{absender.nname || 'Nachname'}}</span>
           </div>
           
           <div class="row">
             <!-- Straße &amp; Hausnummer -->
-            <div class="row">
-              <div class="col-xs-5">
-                <input type="text" name="street" ng-model="absender.street">
-              </div>        
-              <div class="col-xs-1">
-                <input type="text" name="housenr" ng-model="absender.nr" size="3">
-              </div>        
-            </div>
+            <span editable-text="absender.street">{{absender.street || 'Straße'}}</span>
+            <span editable-text="absender.nr">{{absender.nr || '00'}}</span>
           </div>
 
           <div class="row">       
             <!-- Postleitzahl Ort -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="postnr" ng-model="absender.postnr" size="6" />
-              </div>      
-              <div class="col-xs-3">
-                <input type="text" name="city" ng-model="absender.city" />
-              </div>      
-            </div>
+            <span editable-text="absender.postnr">{{absender.postnr || 'PLZ'}}</span>
+            <span editable-text="absender.city">{{absender.city || 'Ort'}}</span>
           </div>    
-        </form>
       </div>
 
       <h1>Empfänger</h1>
       <div class="row">
-        <form name="empfaengerForm">
           <div class="row">
             <!-- Vorname &amp; Nachname -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="vorName" ng-model="empfaenger.vname" required>
-                <span class="error" ng-show="empfaengerForm.vorName.$error.required"></span>
-              </div>
-              <div class="col-xs-3">
-                <input type="text" name="nachName" ng-model="empfaenger.nname">
-              </div>
-            </div>
+            <span editable-text="empfaenger.vname">{{empfaenger.vname || 'Vorname'}}</span>
+            <span editable-text="empfaenger.nname">{{empfaenger.nname || 'Nachname'}}</span>
           </div>
           <div class="row">
             <!-- Straße &amp; Hausnummer -->
-            <div class="row">
-              <div class="col-xs-5">
-                <input type="text" name="street" ng-model="empfaenger.street">
-              </div>
-              <div class="col-xs-1">
-                <input type="text" name="housenr" ng-model="empfaenger.nr" size="3">
-              </div>
-            </div>
+            <span editable-text="empfaenger.street">{{empfaenger.street || 'Straße'}}</span>
+            <span editable-text="empfaenger.nr">{{empfaenger.nr || '0'}}</span>
           </div>
           <div class="row">
             <!-- Postleitzahl Ort -->
-            <div class="row">
-              <div class="col-xs-3">
-                <input type="text" name="postnr" ng-model="empfaenger.postnr" size="6" />
-              </div>
-              <div class="col-xs-3">
-                <input type="text" name="city" ng-model="empfaenger.city" />
-              </div>
-            </div>
+            <span editable-text="empfaenger.postnr">{{empfaenger.postnr || 'PLZ'}}</span>
+            <span editable-text="empfaenger.city">{{empfaenger.city || 'Ort'}}</span>
           </div>
-        </form>
-      </div>
-
-      <h1>Meta</h1>
-      <div class="row">
-        <form name="metaForm">
-          <div class="row">
-            <!-- Betreff -->
-            <div class="row">
-              <div class="col-xs-6">
-                <input type="text" name="subject" ng-model="meta.subject">
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <!-- Datum -->
-            <div class="row">
-              <div class="col-xs-6">
-                <input type="text" name="date" ng-model="meta.date">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <h3>Grüße</h3>
-            <div class="row">
-              <div class="col-xs-3">
-                <!-- Eröffnung -->
-                <input type="text" name="opening" ng-model="meta.opening" />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-3">
-                <!-- Abschluss -->
-                <input type="text" name="closing" ng-model="meta.closing" />
-              </div>
-            </div>
-          </div>
-        </form>
       </div>
 
 </div>
 <div class="col-xs-6">
+
+      <div class="row">
+        <div class="row">
+          <div class="col-xs-5">
+            <!-- Betreff -->
+            <span editable-text="meta.subject">{{meta.subject || 'Betreff'}}</span>
+          </div>
+          <!-- <div class="col-xs-1"> -->
+          <!--   <\!-- Datum -\-> -->
+          <!--   <span editable-text="meta.date">{{meta.date || 'Datum'}}</span> -->
+          <!-- </div> -->
+        </div>
+        <div class="row">
+          <span editable-text="meta.opening">{{meta.opening || 'Anrede (ohne Name)'}} {{empfaenger.nname}}</span>
+          <textarea name="lettertext" ng-model="meta.txt" rows="24" cols="80"></textarea>
+          <span editable-text="meta.closing">{{meta.closing || 'Grußformel'}}</span>
+        </div>
+      </div>
 
   <form name="sendForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/from-data">
  <!-- style="visibility: hidden;"> -->
@@ -147,10 +84,7 @@
       \begin{letter}{ {{empfaenger.vname | limitTo:1}}.{{empfaenger.nname}}\\{{empfaenger.street}} {{empfaenger.nr}}\\{{empfaenger.postnr}} {{empfaenger.city}} }
       \opening{ {{meta.opening}} {{empfaenger.nname}} }
 
-      bla bla bla
-      bla bla
-      bla
-      usw. ... 
+{{meta.txt}}
 
         \closing{ {{meta.closing}},\\{{absender.vname}} {{absender.nname}} }
 
