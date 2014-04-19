@@ -23,6 +23,7 @@ angular.module('angularApp')
       $scope.meta = {
         abs: $scope.absender,
         empf: $scope.empfaenger,
+        txt: '',
         subject: '',
         date: '',
         opening: '',

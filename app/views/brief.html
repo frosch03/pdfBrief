@@ -1,4 +1,4 @@
-<accordion close-others="oneAtATime">
+<accordion close-others="true">
   <accordion-group heading="Absender" is-open="false">
     <form name="absenderForm" role="form" class="form-horizontal">
       <!-- Vorname &amp; Nachname -->
@@ -48,44 +48,42 @@
   </accordion-group>
 
   <accordion-group heading="Brief" is-open="true">
+    <form name="metaForm" role="form" class="form-horizontal">
+      <!-- Betreff -->
+      <label for="btr" class="col-sm-2 control-label">Betreff</label>
+      <div class="form-group form-inline" id="betr">
+        <input type="text" name="subject" ng-model="meta.subject" class="form-control" placeholder="Betreff" />
+      </div>  
+
+      <!-- Eröffnung -->
+      <label for="begr" class="col-sm-2 control-label">Eröffnung</label>
+      <div class="form-group form-inline" id="begr">
+        <input type="text" name="opening" ng-model="meta.opening" class="form-control" placeholder="Begrüßung" />
+      </div>
+      <div class="form-group" id="txxt">
+        <textarea name="lettertext" ng-model="meta.txt" rows="12" cols="80" class="form-control" placeholder="der Brieftext ... "></textarea>
+      </div>
+      <!-- Abschluss -->
+      <label for="gru" class="col-sm-2 control-label">Abschluss</label>
+      <div class="form-group form-inline" id="gru">
+        <input type="text" name="closing" ng-model="meta.closing" class="form-control" placeholder="Gruß" />
+      </div>
+    </form>
   </accordion-group>
 </accordion>
 
 
 
 
-<form name="metaForm" role="form" class="form-horizontal">
-  <!-- Betreff -->
-  <label for="btr" class="col-sm-2 control-label">Betreff</label>
-  <div class="form-group form-inline" id="betr">
-    <input type="text" name="subject" ng-model="meta.subject" class="form-control" placeholder="Betreff" />
-  </div>  
-
-  <!-- Eröffnung -->
-  <label for="begr" class="col-sm-2 control-label">Eröffnung</label>
-  <div class="form-group form-inline" id="begr">
-    <input type="text" name="opening" ng-model="meta.opening" class="form-control" placeholder="Begrüßung" />
-  </div>
-
-  <!-- Abschluss -->
-  <label for="gru" class="col-sm-2 control-label">Abschluss</label>
-  <div class="form-group form-inline" id="gru">
-    <input type="text" name="closing" ng-model="meta.closing" class="form-control" placeholder="Gruß" />
-  </div>
-</form>
 
 
 
 
 
-<div class="container">  <div class="row">    <div class="col-xs-6">
 
 
-</div>
-<div class="col-xs-6">
 
   <form name="sendForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/from-data">
- <!-- style="visibility: hidden;"> -->
     <textarea  name="latex" rows="0" cols="0" style=" visibility: hidden; ">
       {{header}}
 
@@ -123,4 +121,3 @@
     <input type="submit" value="Drucken">
   </form>
 
-</div>  </div>  </div>
