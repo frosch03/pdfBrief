@@ -1,19 +1,20 @@
 'use strict';
 
-angular
-  .module('angularApp', [
+var app = angular.module('angularApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
     'ngRoute',
     'lr.upload',
-    'ui.format'
-  ])
-  .config(function ($routeProvider) {
+    'ui.format',
+    'xeditable'
+  ]);
+
+app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-//        templateUrl: 'views/main.html',
-//        controller: 'MainCtrl'
+        //        templateUrl: 'views/main.html',
+        //        controller: 'MainCtrl'
         templateUrl: 'views/brief.html',
         controller: 'BriefCtrl'
       })
@@ -25,3 +26,10 @@ angular
         redirectTo: '/'
       });
   });
+
+
+
+app.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+});
+

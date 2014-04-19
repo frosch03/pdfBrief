@@ -1,37 +1,37 @@
 'use strict';
 
 angular.module('angularApp')
-  .controller('BriefCtrl', function ($scope, $http) {
+  .controller('BriefCtrl', function ($scope) {
       $scope.absender = {
-          vname: 'Vorname',
-          nname: 'Nachname',
-          street: 'Straße',
-          nr: '2',
-          postnr: 'PLZ',
-          city: 'Ort'
+        vname: 'Vorname',
+        nname: 'Nachname',
+        street: 'Straße',
+        nr: '2',
+        postnr: 'PLZ',
+        city: 'Ort'
       };
 
       $scope.empfaenger = {
-          vname: 'Vorname',
-          nname: 'Nachname',
-          street: 'Straße',
-          nr: '3',
-          postnr: 'PLZ',
-          city: 'Ort'
+        vname: 'Vorname',
+        nname: 'Nachname',
+        street: 'Straße',
+        nr: '3',
+        postnr: 'PLZ',
+        city: 'Ort'
       };
 
       $scope.meta = {
-          abs: $scope.absender,
-          empf: $scope.empfaenger,
-          subject: 'Betreff',
-          date: 'Datum',
-          opening: 'Sehr geehrte Damen und Herren,',
-          closing: 'Mit freundlichen Grüßen'
+        abs: $scope.absender,
+        empf: $scope.empfaenger,
+        subject: 'Betreff',
+        date: 'Datum',
+        opening: 'Sehr geehrte Damen und Herren,',
+        closing: 'Mit freundlichen Grüßen'
       };
 
-      $scope.out = function ($scope) {
-          $scope.meta.betreff;
-      };
+      // $scope.out = function ($scope) {
+      //     return $scope.meta.betreff;
+      // };
 
       // $scope.out.changeEvent(functon
 
@@ -40,7 +40,7 @@ angular.module('angularApp')
       // };
 
 
-      $scope.header = 
+      $scope.header =
           '\\documentclass[fontsize=11pt]{scrlttr2}\n' +
           '\\usepackage[T1]{fontenc}\n' +
           '\\usepackage[utf8]{inputenc}\n' +
@@ -147,7 +147,7 @@ angular.module('angularApp')
           // '\n' +
           // '\\closing{Mit freundlichen Grüßen}\n' +
 
-      $scope.footer = 
+      $scope.footer =
           '% ^\n' +
           '% |-- Script input\n' +
           '\n' +
@@ -217,4 +217,4 @@ angular.module('angularApp')
       //             }
       //         );
       //     };
-  });
+    });
