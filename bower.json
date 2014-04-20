@@ -12,12 +12,16 @@
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
     "angular-upload": "~1.0.6",
-    "angular-ui-utils": "0",
-    "angular-bootstrap": "0",
-    "angular-xeditable": "0"
+    "angular-ui-utils": "*",
+    "angular-bootstrap": "*",
+    "angular-xeditable": "*",
+    "ngStorage": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",
     "angular-scenario": "1.2.15"
+  },
+  "resolutions": {
+    "angular": "1.2.16"
   }
 }
