@@ -3,31 +3,41 @@
 angular.module('angularApp')
   .controller('BriefCtrl', function ($scope) {
       $scope.absender = {
-        vname: '',
-        nname: '',
-        street: '',
-        nr: '',
-        postnr: '',
-        city: ''
+        vname: 'a',
+        nname: 'b',
+        street: 'c',
+        nr: 'd',
+        postnr: 'e',
+        city: 'f'
       };
 
       $scope.empfaenger = {
-        vname: '',
-        nname: '',
-        street: '',
-        nr: '',
-        postnr: '',
-        city: ''
+        vname: 'g',
+        nname: 'h',
+        street: 'i',
+        nr: 'j',
+        postnr: 'k',
+        city: 'l'
       };
 
       $scope.meta = {
         abs: $scope.absender,
         empf: $scope.empfaenger,
-        txt: '',
-        subject: '',
-        date: '',
-        opening: '',
-        closing: ''
+        txt: 'm',
+        subject: 'n',
+        date: 'o',
+        opening: 'p',
+        closing: 'q'
+      };
+
+      $scope.panelColor = function ($scope) {
+        if ( $scope.metaForm.subject.$invalid ) {
+          console.log($scope.metaForm.subject);
+          return 'panel-warning';
+        } else {
+          console.log('fuck');
+          return 'panel-default';
+        }
       };
 
       // $scope.out = function ($scope) {
