@@ -15,7 +15,7 @@
     "angular-ui-utils": "*",
     "angular-bootstrap": "*",
     "angular-xeditable": "*",
-    "ngStorage": "*"
+    "angularLocalStorage": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",
