@@ -29,22 +29,22 @@
       <!-- Vorname &amp; Nachname -->
       <label for="abs" class="col-sm-2 control-label">Absender</label>
       <div class="form-group form-inline" id="abs">
-        <input type="text" name="vorName" ng-model="absender.vname" placeholder="Vorname" class="form-control">
-        <input type="text" name="nachName" ng-model="absender.nname" class="form-control" placeholder="Nachname">
+        <input type="text" name="vorName" ng-model="meta.abs.vname" placeholder="Vorname" class="form-control">
+        <input type="text" name="nachName" ng-model="meta.abs.nname" class="form-control" placeholder="Nachname">
       </div>
       
       <!-- Straße &amp; Hausnummer -->
       <label for="addr" class="col-sm-2 control-label">Adresse</label>
       <div class="form-group form-inline" id="addr">
-        <input type="text" name="street" ng-model="absender.street" placeholder="Straße" class="form-control">
-        <input type="text" name="housenr" ng-model="absender.nr" size="3" placeholder="#" class="form-control">
+        <input type="text" name="street" ng-model="meta.abs.street" placeholder="Straße" class="form-control">
+        <input type="text" name="housenr" ng-model="meta.abs.nr" size="3" placeholder="#" class="form-control">
       </div>
 
       <!-- Postleitzahl Ort -->
       <label for="addr2" class="col-sm-2 control-label"></label>
       <div class="form-group form-inline" id="addr2">
-        <input type="text" name="postnr" ng-model="absender.postnr" size="6" placeholder="PLZ" class="form-control" />
-        <input type="text" name="city" ng-model="absender.city" placeholder="Ort" class="form-control" />
+        <input type="text" name="postnr" ng-model="meta.abs.postnr" size="6" placeholder="PLZ" class="form-control" />
+        <input type="text" name="city" ng-model="meta.abs.city" placeholder="Ort" class="form-control" />
       </div>
     </form>
   </accordion-group>
@@ -54,20 +54,20 @@
       <!-- Vorname &amp; Nachname -->
       <label for="empf" class="col-sm-2 control-label">Empfänger</label>
       <div class="form-group form-inline" id="empf">
-        <input type="text" name="vorName" ng-model="empfaenger.vname" class="form-control" placeholder="Vorname" />
-        <input type="text" name="nachName" ng-model="empfaenger.nname" class="form-control" placeholder="Nachname" />
+        <input type="text" name="vorName" ng-model="meta.empf.vname" class="form-control" placeholder="Vorname" />
+        <input type="text" name="nachName" ng-model="meta.empf.nname" class="form-control" placeholder="Nachname" />
       </div>
       <!-- Straße &amp; Hausnummer -->
       <label for="eddr2" class="col-sm-2 control-label">Adresse</label>
       <div class="form-group form-inline" id="eddr">
-        <input type="text" name="street" ng-model="empfaenger.street" class="form-control" placeholder="Straße" />
-        <input type="text" name="housenr" ng-model="empfaenger.nr" size="3" class="form-control" placeholder="#" />
+        <input type="text" name="street" ng-model="meta.empf.street" class="form-control" placeholder="Straße" />
+        <input type="text" name="housenr" ng-model="meta.empf.nr" size="3" class="form-control" placeholder="#" />
       </div>
       <!-- Postleitzahl Ort -->
       <label for="eddr2" class="col-sm-2 control-label"></label>
       <div class="form-group form-inline" id="eddr2">
-        <input type="text" name="postnr" ng-model="empfaenger.postnr" size="6" class="form-control" placeholder="PLZ" />
-        <input type="text" name="city" ng-model="empfaenger.city" class="form-control" placeholder="Ort" />
+        <input type="text" name="postnr" ng-model="meta.empf.postnr" size="6" class="form-control" placeholder="PLZ" />
+        <input type="text" name="city" ng-model="meta.empf.city" class="form-control" placeholder="Ort" />
       </div>
     </form>
   </accordion-group>
@@ -83,7 +83,7 @@
       <!-- Eröffnung -->
       <label for="begr" class="col-sm-2 control-label">Eröffnung</label>
       <div class="form-group form-inline" id="begr">
-        <input type="text" name="opening" ng-model="meta.opening" class="form-control" placeholder="Begrüßung" />
+        <input type="text" name="opening" ng-model="meta.opening" class="form-control" placeholder="Begrüßung" /> <span class="lead">{{meta.empf.nname}}</span>
       </div>
       <div class="form-group" id="txxt">
         <textarea name="lettertext" ng-model="meta.txt" rows="12" cols="80" class="form-control" placeholder="der Brieftext ... "></textarea>
@@ -91,7 +91,7 @@
       <!-- Abschluss -->
       <label for="gru" class="col-sm-2 control-label">Abschluss</label>
       <div class="form-group form-inline" id="gru">
-        <input type="text" name="closing" ng-model="meta.closing" class="form-control" placeholder="Gruß" />
+        <input type="text" name="closing" ng-model="meta.closing" class="form-control" placeholder="Gruß" /><span  class="lead">{{meta.abs.nname}}</span>
       </div>
     </form>
   </accordion-group>
@@ -99,18 +99,18 @@
 
 
 <form name="sendForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/from-data" style="width: 0px; height: 0px;">
-  <textarea  name="latex" rows="0" cols="0" style=" visibility: hidden; ">
+  <textarea  name="latex" rows="0" cols="0" style="visibility: hidden;">
 {{header}}
 
-\newcommand{\dieAdresse}{ {{ empfaenger.vname }} {{ empfaenger.nname }}\\{{ empfaenger.street }} {{ empfaenger.nr }}\\{{empfaenger.postnr}} {{empfaenger.city}} }
-\newcommand{\dieAnrede}{\Anrede{Herr}{ {{ empfaenger.nname}} } }
+\newcommand{\dieAdresse}{ {{ meta.empf.vname }} {{ meta.empf.nname }}\\{{ meta.empf.street }} {{ meta.empf.nr }}\\{{meta.empf.postnr}} {{meta.empf.city}} }
+\newcommand{\dieAnrede}{\Anrede{Herr}{ {{ meta.empf.nname}} } }
 \newcommand{\derBetreff}{ {{ meta.subject }} }
 \setkomavar{fromname}    
-{\Large{\textsc{ {{ absender.vname }} {{ absender.nname }} } } }
+{\Large{\textsc{ {{ meta.abs.vname }} {{ meta.abs.nname }} } } }
 \setkomavar{fromaddress} 
-{ {{absender.street}} {{absender.nr}}\\{{absender.postnr}} {{absender.city}} } 
+{ {{meta.abs.street}} {{meta.abs.nr}}\\{{meta.abs.postnr}} {{meta.abs.city}} } 
 \setkomavar{backaddress} 
-{ {{absender.vname | limitTo:1}}.{{absender.nname}}, {{absender.street}} {{absender.nr}}, {{absender.postnr}} {{absender.city}} }
+{ {{meta.abs.vname | limitTo:1}}.{{meta.abs.nname}}, {{meta.abs.street}} {{meta.abs.nr}}, {{meta.abs.postnr}} {{meta.abs.city}} }
 \setkomavar{subject}
 { {{meta.subject}} }
 \setkomavar{fromemail}
@@ -118,16 +118,16 @@
 
 {{body}}
 
-\begin{letter}{ {{empfaenger.vname | limitTo:1}}.{{empfaenger.nname}}\\{{empfaenger.street}} {{empfaenger.nr}}\\{{empfaenger.postnr}} {{empfaenger.city}} }
-\opening{ {{meta.opening}} {{empfaenger.nname}} }
+\begin{letter}{ {{meta.empf.vname}} {{meta.empf.nname}}\\{{meta.empf.street}} {{meta.empf.nr}}\\{{meta.empf.postnr}} {{meta.empf.city}} }
+\opening{ {{meta.opening}} {{meta.empf.nname}}, }
 
 {{meta.txt}}
 
-\closing{ {{meta.closing}},\\{{absender.vname}} {{absender.nname}} }
+\closing{ {{meta.closing}},\\{{meta.abs.vname}} {{meta.abs.nname}} }
 
 {{footer}}
   </textarea>
-  <input type="hidden" name="nachname" value="{{empfaenger.nname}}" />
+  <input type="hidden" name="nachname" value="{{meta.empf.nname}}" />
   <input type="hidden" name="subject" value="{{meta.subject}}" />
   <input type="submit" value="Drucken" class="btn btn-primary">
 </form>
