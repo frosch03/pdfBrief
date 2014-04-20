@@ -8,7 +8,8 @@ var app = angular.module('angularApp', [
     'lr.upload',
     'ui.format',
     'ui.bootstrap',
-    'xeditable'
+    'xeditable',
+    'angularLocalStorage'
   ]);
 
 app.config(function ($routeProvider) {
