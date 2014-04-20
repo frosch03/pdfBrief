@@ -15,18 +15,13 @@ var app = angular.module('angularApp', [
 app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        //        templateUrl: 'views/main.html',
-        //        controller: 'MainCtrl'
         templateUrl: 'views/brief.html',
         controller: 'BriefCtrl'
       })
-      .when('/myroute', {
-        templateUrl: 'views/myroute.html',
-        controller: 'MyrouteCtrl'
+      .when('/about', {
+        templateUrl: 'views/about.html'
       })
-      .otherwise({
-        redirectTo: '/'
-      });
+      .otherwise('/');
   });
 
 
@@ -34,4 +29,3 @@ app.config(function ($routeProvider) {
 app.run(function(editableOptions) {
   editableOptions.theme = 'bs3';
 });
-
