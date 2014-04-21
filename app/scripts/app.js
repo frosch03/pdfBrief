@@ -12,7 +12,7 @@ var app = angular.module('angularApp', [
     'angularLocalStorage'
   ]);
 
-app.config(function ($routeProvider) {
+app.config(function ($resourceProvider, $routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/brief.html',

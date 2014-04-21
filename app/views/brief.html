@@ -3,27 +3,29 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">Toggle navigation</span><span class="glyphicon glyphicon-align-justify"></span>
       </button>
       <a class="navbar-brand" href="#">LettrIt</a>
     </div>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li class="active">
-        <a href="#">Write</a>
-      </li>
-      <li>
-        <a href="#">          
-          <span class="glyphicon glyphicon-print"></span> Print
-        </a>
-      </li>
-      <li>
-        <a href="#">          
-          <span class="glyphicon glyphicon-remove"></span>Reset
-        </a>
-      </li>
-      <li><a href="#/about">About</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a href="#"><strong>Write</strong></a>
+        </li>
+        <li>
+          <a href="#">          
+            <span class="glyphicon glyphicon-print" ng-click="test()">Print</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">          
+            <span class="glyphicon glyphicon-remove">Reset</span>
+          </a>
+        </li>
+        <li><a href="#/about">About</a></li>
+      </ul>
+    </div>
   </div><!-- /.navbar-collapse -->
 </nav>
 
@@ -100,38 +102,3 @@
     </form>
   </accordion-group>
 </accordion>
-
-
-<form name="sendForm" action="http://localhost:8080/upload" method="POST" enctype="multipart/from-data" style="width: 0px; height: 0px;">
-  <textarea  name="latex" rows="0" cols="0" style="visibility: hidden;">
-{{header}}
-
-\newcommand{\dieAdresse}{ {{ meta.empf.vname }} {{ meta.empf.nname }}\\{{ meta.empf.street }} {{ meta.empf.nr }}\\{{meta.empf.postnr}} {{meta.empf.city}} }
-\newcommand{\dieAnrede}{\Anrede{Herr}{ {{ meta.empf.nname}} } }
-\newcommand{\derBetreff}{ {{ meta.subject }} }
-\setkomavar{fromname}    
-{\Large{\textsc{ {{ meta.abs.vname }} {{ meta.abs.nname }} } } }
-\setkomavar{fromaddress} 
-{ {{meta.abs.street}} {{meta.abs.nr}}\\{{meta.abs.postnr}} {{meta.abs.city}} } 
-\setkomavar{backaddress} 
-{ {{meta.abs.vname | limitTo:1}}.{{meta.abs.nname}}, {{meta.abs.street}} {{meta.abs.nr}}, {{meta.abs.postnr}} {{meta.abs.city}} }
-\setkomavar{subject}
-{ {{meta.subject}} }
-\setkomavar{fromemail}
-{ kurt-deuter.blub.de }
-
-{{body}}
-
-\begin{letter}{ {{meta.empf.vname}} {{meta.empf.nname}}\\{{meta.empf.street}} {{meta.empf.nr}}\\{{meta.empf.postnr}} {{meta.empf.city}} }
-\opening{ {{meta.opening}} {{meta.empf.nname}}, }
-
-{{meta.txt}}
-
-\closing{ {{meta.closing}},\\{{meta.abs.vname}} {{meta.abs.nname}} }
-
-{{footer}}
-  </textarea>
-  <input type="hidden" name="nachname" value="{{meta.empf.nname}}" />
-  <input type="hidden" name="subject" value="{{meta.subject}}" />
-  <input type="submit" value="Drucken" class="btn btn-primary">
-</form>
