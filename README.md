@@ -17,7 +17,7 @@ and finally start the server
     
 Dependencies
 ------------
-You need a server, that handles your pdf-create requests and serves you a `.pdf` file. You can use [https://github.com/frosch03/briefServer.git](briefServer) for this task.
+You need a server, that handles your pdf-create requests and serves you a `.pdf` file. You can use [briefServer](https://github.com/frosch03/briefServer.git) for this task.
 
 Problems
 --------
