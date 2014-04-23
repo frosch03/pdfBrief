@@ -27,6 +27,7 @@ angular.module('angularApp')
           '\\usepackage{eurosym}\n' +
           '\\usepackage{etoolbox}\n' +
           '\\usepackage{pdfpages}\n' +
+          '\\usepackage{lmodern}\n' +
           '% \\usepackage{ifthen}\n' +
           '\n' +
           '\\newcommand{\\pic}[2][0.9] { %pic figure einfügen, [Skalierung], {Dateiname ohne Endung}\n' +
@@ -97,28 +98,29 @@ angular.module('angularApp')
           var theText =
               $scope.header +
               '' +
-              '\\newcommand{\\dieAdresse}{ ' + $scope.meta.empf.vname + ' ' + $scope.meta.empf.nname + '\\\\' + $scope.meta.empf.street + ' ' + $scope.meta.empf.nr + '\\\\' + $scope.meta.empf.postnr + ' ' + $scope.meta.empf.city + ' }' +
+              '\\newcommand{\\dieAdresse}{' + $scope.meta.empf.vname + ' ' + $scope.meta.empf.nname + '\\\\' + $scope.meta.empf.street + ' ' + $scope.meta.empf.nr + '\\\\' + $scope.meta.empf.postnr + ' ' + $scope.meta.empf.city + ' }' +
               '\\newcommand{\\dieAnrede}{\\Anrede{Herr}{ ' + $scope.meta.empf.nname + ' } }' +
-              '\\newcommand{\\derBetreff}{ ' + $scope.meta.subject + ' }' +
+              '\\newcommand{\\derBetreff}{' + $scope.meta.subject + '}' +
               '\\setkomavar{fromname}    ' +
-              '{\\Large{\\textsc{ ' + $scope.meta.abs.vname + ' ' + $scope.meta.abs.nname + ' } } }' +
+              '{\\Large{\\textsc{' + $scope.meta.abs.vname + ' ' + $scope.meta.abs.nname + '} } }' +
               '\\setkomavar{fromaddress} ' +
-              '{ ' + $scope.meta.abs.street + ' ' + $scope.meta.abs.nr + '\\\\' + $scope.meta.abs.postnr + ' ' + $scope.meta.abs.city + ' } ' +
+              '{' + $scope.meta.abs.street + ' ' + $scope.meta.abs.nr + '\\\\' + $scope.meta.abs.postnr + ' ' + $scope.meta.abs.city + ' } ' +
               '\\setkomavar{backaddress} ' +
-              '{ ' + $scope.meta.abs.vname[0] + '. ' + $scope.meta.abs.nname + ', ' + $scope.meta.abs.street + ' ' + $scope.meta.abs.nr + ', ' + $scope.meta.abs.postnr + ' ' + $scope.meta.abs.city + ' }' +
+              '{' + $scope.meta.abs.vname[0] + '. ' + $scope.meta.abs.nname + ', ' + $scope.meta.abs.street + ' ' + $scope.meta.abs.nr + ', ' + $scope.meta.abs.postnr + ' ' + $scope.meta.abs.city + ' }' +
               '\\setkomavar{subject}' +
-              '{ ' + $scope.meta.subject + ' }' +
+              '{' + $scope.meta.subject + '}' +
               '\\setkomavar{fromemail}' +
               '{ kurt-deuter.blub.de }' +
               '' +
               $scope.body + 
               '' +
-              '\\begin{letter}{ ' + $scope.meta.empf.vname + ' ' + $scope.meta.empf.nname + '\\\\' + $scope.meta.empf.street + ' ' + $scope.meta.empf.nr + '\\\\' + $scope.meta.empf.postnr + ' ' + $scope.meta.empf.city + ' }' +
-              '\\opening{ ' + $scope.meta.opening + ' ' + $scope.meta.empf.nname + ', }' +
+              '\\begin{letter}{' + $scope.meta.empf.vname + ' ' + $scope.meta.empf.nname + '\\\\' + $scope.meta.empf.street + ' ' + $scope.meta.empf.nr + '\\\\' + $scope.meta.empf.postnr + ' ' + $scope.meta.empf.city + ' }' +
+              '\\opening{' + $scope.meta.opening + ' ' + $scope.meta.empf.nname + ', }' +
               '' +
               '' + $scope.meta.txt + '' +
               '' +
-              '\\closing{ ' + $scope.meta.closing + ',\\\\' + $scope.meta.abs.vname + ' ' + $scope.meta.abs.nname + ' }' +
+              // '\\closing{' + $scope.meta.closing + ',\\\\' + $scope.meta.abs.vname + ' ' + $scope.meta.abs.nname + ' }' +
+              '\\closing{' + $scope.meta.closing + '}' +
               '' +
               $scope.footer;
 
@@ -126,7 +128,7 @@ angular.module('angularApp')
 
           $http({
               method: 'POST',
-              url: 'http://192.168.0.17:8080/upload', 
+              url: 'http://78.46.21.250:8080/upload', 
               data: 'message=' + xsrf,
               headers: {'Content-Type': 'multipart/form-data'}
           })
