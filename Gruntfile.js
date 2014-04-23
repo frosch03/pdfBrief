@@ -80,7 +80,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          port: 9001,
+          port: 9100,
           base: [
             '.tmp',
             'test',
